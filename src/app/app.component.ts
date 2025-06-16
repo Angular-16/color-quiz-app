@@ -14,4 +14,7 @@ import { QuizStore } from './store/quiz.store';
 })
 export class AppComponent {
     readonly store = inject(QuizStore);
+
+    readonly questionsCount = this.store.questionsCount;
+    readonly value = this.store.currentQuestionIndex;
 }

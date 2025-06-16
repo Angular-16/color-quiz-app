@@ -9,11 +9,13 @@ export const QuizStore = signalStore(
         const currentQuestionIndex = computed(() => store.answers().length);
         const isQuizDone = computed(() => store.answers().length === store.questions().length);
         const currentQuestion = computed(() => store.questions()[currentQuestionIndex()]);
+        const questionsCount = computed(() => store.questions().length);
 
         return {
             currentQuestionIndex,
             isQuizDone,
             currentQuestion,
+            questionsCount,
         };
     })
 );
