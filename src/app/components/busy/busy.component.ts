@@ -5,8 +5,6 @@ import { SharedModule } from '../../shared.module';
     selector: 'app-busy',
     imports: [SharedModule],
     templateUrl: './busy.component.html',
-    styleUrl: './busy.component.scss'
+    styleUrl: './busy.component.scss',
 })
-export class BusyComponent {
-
-}
+export class BusyComponent {}
