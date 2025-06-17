@@ -9,7 +9,10 @@
   </div>
 </app-toolbar>
 <div class="main">
+  @if (isDone()) {
+  <app-done />
+  } @else {
   <app-question-presenter />
   <app-progress [max]="questionsCount()" [value]="currentQuestion()" />
-  <app-done />
+  }
 </div>

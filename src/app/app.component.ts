@@ -17,6 +17,7 @@ export class AppComponent {
 
     readonly questionsCount = this.store.questionsCount;
     readonly currentQuestion = this.store.currentQuestionIndex;
+    readonly isDone = this.store.isQuizDone;
 
     /**
      * Resets the answers array in the store to an empty array.

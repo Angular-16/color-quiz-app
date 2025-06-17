@@ -2,8 +2,9 @@ import { patchState, signalStore, withComputed, withMethods, withState } from '@
 import { initialQuizSlice } from './quiz.slice';
 import { computed } from '@angular/core';
 import { addAnswerUpdater, generateNewQuizUpdater, resetAnswersUpdater } from './quiz.updater';
-import { generate } from 'rxjs';
+import { getCorrectAnswersCount } from './quiz.helper';
 
+// @ts-ignore
 export const QuizStore = signalStore(
     /** Настройки store */
     {
@@ -19,13 +20,17 @@ export const QuizStore = signalStore(
         const currentQuestionIndex = computed(() => store.answers().length);
         const isQuizDone = computed(() => store.answers().length === store.questions().length);
         const currentQuestion = computed(() => store.questions()[currentQuestionIndex()]);
+        /** Общее количество вопросов */
         const questionsCount = computed(() => store.questions().length);
+        /** Количество правильных ответов */
+        const correctAnswersCount = computed(() => getCorrectAnswersCount(store.answers(), store.questions()));
 
         return {
             currentQuestionIndex,
             isQuizDone,
             currentQuestion,
             questionsCount,
+            correctAnswersCount,
         };
     }),
     /** Функция добавляет методы в store */
