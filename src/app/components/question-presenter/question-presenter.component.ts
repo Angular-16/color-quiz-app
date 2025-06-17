@@ -12,6 +12,11 @@ export class QuestionPresenterComponent {
     readonly store = inject(QuizStore);
     readonly question = this.store.currentQuestion;
 
+    /**
+     * Dispatches an action to add the answer at the given index to the
+     * answers array in the store.
+     * @param index The index of the answer to add.
+     */
     answerHandler(index: number): void {
         this.store.addAnswer(index);
     }
