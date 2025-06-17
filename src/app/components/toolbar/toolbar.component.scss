@@ -1,7 +1,7 @@
 :host {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--p-100);
     padding: 20px;
@@ -10,6 +10,11 @@
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
     color: var(--p-500);
     font-weight: bold;
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
 
     mat-icon {
         width: auto;

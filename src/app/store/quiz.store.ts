@@ -1,7 +1,8 @@
 import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
 import { initialQuizSlice } from './quiz.slice';
 import { computed } from '@angular/core';
-import { addAnswerUpdater, resetAnswersUpdater } from './quiz.updater';
+import { addAnswerUpdater, generateNewQuizUpdater, resetAnswersUpdater } from './quiz.updater';
+import { generate } from 'rxjs';
 
 export const QuizStore = signalStore(
     /** Настройки store */
@@ -31,5 +32,6 @@ export const QuizStore = signalStore(
     withMethods((store) => ({
         addAnswer: (index: number) => patchState(store, addAnswerUpdater(index)),
         resetAnswers: () => patchState(store, resetAnswersUpdater()),
+        generateNewQuiz: () => patchState(store, generateNewQuizUpdater()),
     }))
 );

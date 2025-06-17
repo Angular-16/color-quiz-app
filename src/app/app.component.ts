@@ -17,4 +17,19 @@ export class AppComponent {
 
     readonly questionsCount = this.store.questionsCount;
     readonly currentQuestion = this.store.currentQuestionIndex;
+
+    /**
+     * Resets the answers array in the store to an empty array.
+     */
+    resetQuiz(): void {
+        this.store.resetAnswers();
+    }
+
+    /**
+     * Generates a new quiz in the store.
+     * This will reset the answers array in the store to an empty array and set the questions array to a new set of random questions.
+     */
+    generateNewQuiz(): void {
+        this.store.generateNewQuiz();
+    }
 }
