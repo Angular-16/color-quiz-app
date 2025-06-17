@@ -13,6 +13,6 @@ export class QuestionPresenterComponent {
     readonly question = this.store.currentQuestion;
 
     answerHandler(index: number): void {
-        console.log(index);
+        this.store.addAnswer(index);
     }
 }
