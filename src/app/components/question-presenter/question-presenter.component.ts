@@ -11,4 +11,8 @@ import { QuizStore } from '../../store/quiz.store';
 export class QuestionPresenterComponent {
     readonly store = inject(QuizStore);
     readonly question = this.store.currentQuestion;
+
+    answerHandler(index: number): void {
+        console.log(index);
+    }
 }
