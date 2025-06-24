@@ -3,7 +3,11 @@ import { KEYWORD, RGB } from 'color-convert/conversions';
 import namer from 'color-namer';
 import { Question } from '../models/question.model';
 
-export function randomNumber(min: number, max: number, includeMax = false): number {
+export function randomNumber(
+    min: number,
+    max: number,
+    includeMax = false
+): number {
     const range = includeMax ? max - min + 1 : max - min;
     return Math.floor(Math.random() * range) + min;
 }
@@ -97,7 +101,7 @@ export function randomColorQuestion() {
  * Each question is a random color question.
  * @returns {Question[]} An array of random color questions.
  */
-export function randomColorQuiz() {
+export function randomColorQuiz(): Question[] {
     return Array.from({
         length: randomNumber(6, 20),
     }).map((_) => randomColorQuestion());
@@ -110,7 +114,7 @@ export function randomColorQuiz() {
  * @param {string} str The camelCase string to split.
  * @returns {string} The space-separated string.
  */
-function splitCamelCase(str: string) {
+function splitCamelCase(str: string): string {
     return str.replace(/([a-z])([A-Z])/g, '$1 $2');
 }
 
@@ -122,7 +126,7 @@ const COLOR_DISPLAY_NAMES = getColorDisplayNameMap();
  * The keys are the lowercased HTML color names and the values are their display names.
  * @returns {Record<string, string>} A map of HTML color names to their display names.
  */
-export function getColorDisplayNameMap() {
+export function getColorDisplayNameMap(): Record<string, string> {
     const htmlColors = [
         'AliceBlue',
         'AntiqueWhite',
@@ -274,7 +278,9 @@ export function getColorDisplayNameMap() {
         'YellowGreen',
     ];
 
-    return Object.fromEntries(htmlColors.map((clr) => [clr.toLowerCase(), splitCamelCase(clr)]));
+    return Object.fromEntries(
+        htmlColors.map((clr) => [clr.toLowerCase(), splitCamelCase(clr)])
+    );
 }
 
 /**
